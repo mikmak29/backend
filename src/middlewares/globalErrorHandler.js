@@ -9,6 +9,7 @@ export const globalMiddleware = (err, req, res, next) => {
 		error: err.stack,
 		request: req.body,
 		url: req.url,
+		method: req.method,
 	};
 	console.log(error);
 
@@ -16,5 +17,6 @@ export const globalMiddleware = (err, req, res, next) => {
 		error: err.stack,
 		request: req.body,
 		url: req.url,
+		method: req.method,
 	});
 };
