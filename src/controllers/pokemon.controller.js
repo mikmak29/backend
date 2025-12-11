@@ -28,3 +28,17 @@ export const createData = async (req, res, next) => {
 		next(error);
 	}
 };
+
+export const deleteData = async (req, res, next) => {
+	try {
+		const data = req.params.id;
+		const deletePokemon = await pokemonData.deleteData(data);
+
+		res.status(201).json({
+			message: "Deleted data successfully",
+			deletedPokemon: deletePokemon,
+		});
+	} catch (error) {
+		next(error);
+	}
+};
