@@ -29,6 +29,19 @@ export const createData = async (req, res, next) => {
 	}
 };
 
+export const updateData = async (req, res, next) => {
+	try {
+		const updateData = await pokemonData.updateData(req.params.id, req.body, { new: true });
+
+		res.status(201).json({
+			message: "Data updated",
+			data: updateData,
+		});
+	} catch (error) {
+		next(error);
+	}
+};
+
 export const deleteData = async (req, res, next) => {
 	try {
 		const data = req.params.id;
