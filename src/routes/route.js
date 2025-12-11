@@ -1,10 +1,11 @@
 import express from "express";
-import { fetchData, createData, deleteData } from "../controllers/pokemon.controller.js";
+import { fetchData, createData, updateData, deleteData } from "../controllers/pokemon.controller.js";
 
 const route = express.Router();
 
 route.get("/", fetchData);
 route.post("/postData", createData);
+route.put("/pokemon/:id", updateData);
 route.delete("/pokemon/:id", deleteData);
 
 // route.post("/postPokemonName", async (req, res, next) => {

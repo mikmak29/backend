@@ -36,6 +36,16 @@ export const createData = async (pokemonName) => {
 	}
 };
 
+export const updateData = async (reqId, reqBody, updated) => {
+	try {
+		const data = await PokemonData.findByIdAndUpdate(reqId, reqBody, updated);
+
+		return data;
+	} catch (error) {
+		throw new Error("UPDATE: ", error.message);
+	}
+};
+
 export const deleteData = async (reqId) => {
 	try {
 		const data = await PokemonData.findByIdAndDelete(reqId);
