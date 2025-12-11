@@ -35,3 +35,13 @@ export const createData = async (pokemonName) => {
 		throw new Error("CREATE: ", error.message);
 	}
 };
+
+export const deleteData = async (reqId) => {
+	try {
+		const data = await PokemonData.findByIdAndDelete(reqId);
+
+		return data;
+	} catch (error) {
+		throw new Error("DELETE: ", error.message);
+	}
+};
